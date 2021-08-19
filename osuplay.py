@@ -76,7 +76,7 @@ for i in range(80):
     # make a screenshot
     #img = pag.screenshot()
     img = pag.screenshot(region=(0, 0, 1920, 1080))
-    # pyautogui.locateOnScreen(“Sceenshot.PNG”)
+    # pyautogui.locateOnScreen(ï¿½Sceenshot.PNGï¿½)
     #winar = pag.locateOnScreen("Command Prompt")
     #print( winar )
 
