@@ -4,7 +4,7 @@ import pyautogui as pag
 import pygetwindow as pgw
 import re
 import time
-
+from PIL import ImageGrab
 
 # Identify OSU window (2-3 linse of code)
 # Get OSU coordinates (1-2 lines of code)
@@ -20,7 +20,7 @@ z1 = pgw.getAllTitles()
 # print( "PGW complete")
 
 # Used string search from https://www.geeksforgeeks.org/python-finding-strings-with-given-substring-in-list/
-osuwin = [winnm for winnm in z1 if "osu" in winnm]
+osuwin = [winnm for winnm in z1 if "osu!" in winnm]
 print( osuwin[0])
 osutab = pgw.getWindowsWithTitle(osuwin[0])
 print("osutab list: ")
@@ -46,20 +46,22 @@ print(owintl)
 # display screen resolution, get it from your OS settings
 SCREEN_SIZE = (1920, 1080)
 # define the codec
-fourcc = cv2.VideoWriter_fourcc(*"XVID")
-outfile = "output5.avi"
+#fourcc = cv2.VideoWriter_fourcc(*"XVID")
+#fileext = ".avi"
 # create the video write object
 #fourcc = cv2.VideoWriter_fourcc(*'VP80')
 #self.filename = file+".webm"   # webm is extension for VP8
 # H264 CODEC  - High resource consumption on writes
 #fourcc = cv2.VideoWriter_fourcc(*'X264')
+#fileext = ".mov"
 #outfile = "output5.mov"    # mov is extension for H264
 # MJPG CODEC  - Appears to be decent medium
-#fourcc = cv2.VideoWriter_fourcc(*'MJPG')
+fourcc = cv2.VideoWriter_fourcc(*'MJPG')
+fileext = ".avi"
 #self.filename = file+".avi"   # avi is extension for mjpg for opencv, not .mjpg!
 
 # Create video file
-out = cv2.VideoWriter(outfile, fourcc, 20.0, (SCREEN_SIZE))
+out = cv2.VideoWriter("output5"+fileext, fourcc, 20.0, (SCREEN_SIZE))
 
 #self.fmwd = wd     # Frame Width
 #self.fmht = ht     # Frame Height
@@ -71,21 +73,32 @@ out = cv2.VideoWriter(outfile, fourcc, 20.0, (SCREEN_SIZE))
 
 
 
-for i in range(80):
+for i in range(20):
     print("Running Loop "+str(i))
+    #z2 = pgw.getAllTitles()
+    #osuwin2 = [winnm for winnm in z2 if "osu!" in winnm]
+    #print( z2 )
+
     # make a screenshot
     #img = pag.screenshot()
-    img = pag.screenshot(region=(0, 0, 1920, 1080))
+    screen1 = pag.screenshot("pagout"+str(i)+".png",region=(0, 0, 1920, 1080))
+    #screen1 = pag.screenshot(region=(0, 0, 1920, 1080))
+
+    # Attempting direct screen from the Pillow (PIL) Library function ImageGrab
+    screen2 = ImageGrab.grab()
+    screen2.save("igout"+str(i)+".png", 'PNG')  # Equivalent to `screenshot.save(filepath, format='PNG')`
+
     # pyautogui.locateOnScreen(�Sceenshot.PNG�)
     #winar = pag.locateOnScreen("Command Prompt")
     #print( winar )
 
     # convert these pixels to a proper numpy array to work with OpenCV
-    framebgr = np.array(img)
+    framebgr = np.array(screen1)
     # convert colors from BGR to RGB
     framergb = cv2.cvtColor(framebgr, cv2.COLOR_BGR2RGB)
     # write the frame
     out.write(framergb)
+    #cv2.imwrite("out"+str(i)+".png",framergb)
     time.sleep(1/20)
 
     # show the frame
