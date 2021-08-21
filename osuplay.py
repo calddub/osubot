@@ -87,7 +87,8 @@ for i in range(20):
 
     # make a screenshot
     #img = pag.screenshot()
-    screen1 = pag.screenshot("output/pagout"+str(i)+".png",region=(0, 0, 1920, 1080))
+    #screen1 = pag.screenshot("output/pagout"+str(i)+".png",region=(0, 0, 1920, 1080))
+    screen1 = pag.screenshot("output/pagout"+str(i)+".png")
     #screen1 = pag.screenshot(region=(0, 0, 1920, 1080))
 
     # Attempting direct screen from the Pillow (PIL) Library function ImageGrab
