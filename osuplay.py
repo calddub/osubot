@@ -8,6 +8,12 @@ from PIL import ImageGrab
 
 print( "Import complete" )
 
+print( "cv2:"+cv2.__version__ )
+print( "np:"+ np.__version__ )
+print( "pag:"+ pag.__version__ )
+print( "pgw:"+ pgw.__version__ )
+print( "re:"+ re.__version__ )
+
 # Identify OSU window (2-3 linse of code)
 # Get OSU coordinates (1-2 lines of code)
 # Start Capture Loop

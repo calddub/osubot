@@ -1,3 +1,6 @@
 .vs/slnx.sqlite
 *.png
+**/*.png
 .vs/**/*
+**/.vs/**
+**/.vs/**/*
