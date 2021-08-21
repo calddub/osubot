@@ -9,7 +9,8 @@ print( "np:"+ np.__version__ )
 
 
 img = cv2.imread("output/refimg.png", cv2.IMREAD_COLOR )
-cv2.imshow("screenshot", img)
 
-if cv2.waitKey(10000) == ord("q"):
-    print("Done")
+#cv2.imshow("screenshot", img)
+#
+#if cv2.waitKey(10000) == ord("q"):
+#    print("Done")
