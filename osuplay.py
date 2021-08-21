@@ -6,14 +6,14 @@ import re
 import time
 from PIL import ImageGrab
 
+print( "Import complete" )
+
 # Identify OSU window (2-3 linse of code)
 # Get OSU coordinates (1-2 lines of code)
 # Start Capture Loop
 #    Grab a screenshot (1 line)
 #    Save it  (1-2 lines)
 
-
-print( "Import complete" )
 
 z1 = pgw.getAllTitles()
 # print(z1)
