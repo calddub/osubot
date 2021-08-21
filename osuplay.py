@@ -61,7 +61,7 @@ fileext = ".avi"
 #self.filename = file+".avi"   # avi is extension for mjpg for opencv, not .mjpg!
 
 # Create video file
-out = cv2.VideoWriter("output5"+fileext, fourcc, 20.0, (SCREEN_SIZE))
+out = cv2.VideoWriter("output/output5"+fileext, fourcc, 20.0, (SCREEN_SIZE))
 
 #self.fmwd = wd     # Frame Width
 #self.fmht = ht     # Frame Height
@@ -81,7 +81,7 @@ for i in range(20):
 
     # make a screenshot
     #img = pag.screenshot()
-    screen1 = pag.screenshot("pagout"+str(i)+".png",region=(0, 0, 1920, 1080))
+    screen1 = pag.screenshot("output/pagout"+str(i)+".png",region=(0, 0, 1920, 1080))
     #screen1 = pag.screenshot(region=(0, 0, 1920, 1080))
 
     # Attempting direct screen from the Pillow (PIL) Library function ImageGrab
