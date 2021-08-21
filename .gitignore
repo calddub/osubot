@@ -1,6 +1,7 @@
 .vs/slnx.sqlite
-*.png
-**/pag*.png
+.vs/
+*out*.png
+**/*out*.png
 .vs/**/*
 **/.vs/**
 **/.vs/**/*
